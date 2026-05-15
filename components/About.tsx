@@ -42,7 +42,7 @@ export default function About() {
               className="mt-8 pl-6 border-l-2 border-[#FE0101]"
             >
               <p className="text-white/60 text-sm leading-relaxed italic">
-                &ldquo;A true artist — the work he does is second to none. The passion and
+                &ldquo;A true artist. The work he does is second to none. The passion and
                 hard work shows.&rdquo;
               </p>
               <cite className="text-white/30 text-xs tracking-widest uppercase mt-2 block not-italic">
@@ -70,15 +70,15 @@ export default function About() {
 
             <div className="space-y-5 text-white/55 leading-relaxed">
               <p>
-                At Kustom Colour Design, every project is a blank canvas — and we
+                At Kustom Colour Design, every project is a blank canvas, and we
                 treat it that way. With over three decades of industry experience
                 behind us, we bring a rare combination of traditional artisan
                 skill and modern design intelligence to every brief.
               </p>
               <p>
                 From meticulously hand-painted heritage signs to precision
-                vehicle wraps, airbrushed murals and complete brand rollouts —
-                our work doesn&rsquo;t just get noticed. It gets remembered.
+                vehicle wraps, airbrushed murals and complete brand rollouts.
+                Our work doesn&rsquo;t just get noticed. It gets remembered.
               </p>
               <p className="text-white/80 font-medium">
                 Based in Hervey Bay, Queensland. Built for businesses that

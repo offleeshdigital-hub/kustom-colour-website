@@ -1,57 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/app/lib/utils";
 import TurbulentFlow from "@/components/TurbulentFlow";
+import HeroPinstripe from "@/components/HeroPinstripe";
 
-function AbstractShape({
-  className,
-  delay = 0,
-  width = 400,
-  height = 100,
-  rotate = 0,
-  gradient = "from-[#FE0101]/[0.12]",
-}: {
-  className?: string;
-  delay?: number;
-  width?: number;
-  height?: number;
-  rotate?: number;
-  gradient?: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: -150, rotate: rotate - 15 }}
-      animate={{ opacity: 1, y: 0, rotate: rotate }}
-      transition={{
-        duration: 2.4,
-        delay,
-        ease: [0.23, 0.86, 0.39, 0.96],
-        opacity: { duration: 1.2 },
-      }}
-      className={cn("absolute", className)}
-    >
-      <motion.div
-        animate={{ y: [0, 18, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        style={{ width, height }}
-        className="relative"
-      >
-        <div
-          className={cn(
-            "absolute inset-0 rounded-full",
-            "bg-gradient-to-r to-transparent",
-            gradient,
-            "backdrop-blur-[2px] border border-[#FE0101]/[0.2]",
-            "shadow-[0_8px_48px_0_rgba(254,1,1,0.12)]",
-            "after:absolute after:inset-0 after:rounded-full",
-            "after:bg-[radial-gradient(circle_at_50%_50%,rgba(254,1,1,0.15),transparent_70%)]"
-          )}
-        />
-      </motion.div>
-    </motion.div>
-  );
-}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -72,66 +24,18 @@ export default function Hero() {
       {/* Turbulent flow shader background */}
       <TurbulentFlow />
 
+      {/* Abstract pinstripe art */}
+      <HeroPinstripe />
+
       {/* Background gradient wash over shader */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#FE0101]/[0.04] via-transparent to-[#FE0101]/[0.02] pointer-events-none" />
 
       {/* Horizontal rule accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FE0101]/40 to-transparent" />
 
-      {/* Floating abstract shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <AbstractShape
-          delay={0.2}
-          width={700}
-          height={160}
-          rotate={12}
-          gradient="from-[#FE0101]/[0.1]"
-          className="left-[-15%] top-[18%]"
-        />
-        <AbstractShape
-          delay={0.4}
-          width={500}
-          height={120}
-          rotate={-18}
-          gradient="from-[#FE0101]/[0.08]"
-          className="right-[-8%] top-[65%]"
-        />
-        <AbstractShape
-          delay={0.3}
-          width={320}
-          height={80}
-          rotate={-6}
-          gradient="from-white/[0.04]"
-          className="left-[8%] bottom-[12%]"
-        />
-        <AbstractShape
-          delay={0.55}
-          width={240}
-          height={60}
-          rotate={22}
-          gradient="from-[#FE0101]/[0.15]"
-          className="right-[18%] top-[8%]"
-        />
-        <AbstractShape
-          delay={0.65}
-          width={160}
-          height={44}
-          rotate={-30}
-          gradient="from-white/[0.05]"
-          className="left-[28%] top-[6%]"
-        />
-        <AbstractShape
-          delay={0.5}
-          width={420}
-          height={100}
-          rotate={8}
-          gradient="from-[#FE0101]/[0.06]"
-          className="right-[5%] top-[32%]"
-        />
-      </div>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full pt-24 md:pt-28">
         {/* Badge */}
         <motion.div
           custom={0}
@@ -153,7 +57,7 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="font-display text-[clamp(4rem,14vw,13rem)] leading-none tracking-wide text-white mb-2"
+            className="font-bungee text-[clamp(3.2rem,11vw,10.5rem)] leading-none tracking-tight text-white mb-2"
           >
             KUSTOM
           </motion.h1>
@@ -164,15 +68,27 @@ export default function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="font-display text-[clamp(4rem,14vw,13rem)] leading-none tracking-wide text-[#FE0101] mb-6 md:mb-8"
+            className="font-bungee text-[clamp(3.2rem,11vw,10.5rem)] leading-none tracking-tight text-[#FE0101]"
           >
-            COLOUR.
+            COLOUR
           </motion.h1>
+        </div>
+        <div className="overflow-hidden">
+          <motion.p
+            custom={3}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="text-[clamp(2.6rem,7vw,7rem)] text-white/85 leading-none mt-1 mb-6 md:mb-8 pl-1"
+            style={{ fontFamily: "'Ridenation', cursive", fontStyle: 'italic', transform: 'skewX(-6deg)', display: 'inline-block' }}
+          >
+            Design
+          </motion.p>
         </div>
 
         {/* Sub-line + CTA row */}
         <motion.div
-          custom={3}
+          custom={4}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -204,7 +120,7 @@ export default function Hero() {
 
         {/* Stats strip */}
         <motion.div
-          custom={4}
+          custom={5}
           variants={fadeUp}
           initial="hidden"
           animate="visible"

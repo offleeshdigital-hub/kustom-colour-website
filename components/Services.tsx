@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const services = [
   {
     name: "Complete Signage",
-    desc: "End-to-end signage solutions — from concept and design to fabrication and installation.",
+    desc: "End-to-end signage solutions, from concept and design to fabrication and installation.",
     size: "large",
   },
   {
@@ -15,7 +15,7 @@ const services = [
   },
   {
     name: "Airbrushing & Murals",
-    desc: "Custom airbrushed artwork and large-format murals — walls, vehicles, helmets.",
+    desc: "Custom airbrushed artwork and large-format murals:walls, vehicles, helmets.",
     size: "small",
   },
   {
@@ -30,7 +30,7 @@ const services = [
   },
   {
     name: "Graphic Design & Logos",
-    desc: "Brand identity built to last — logos, layouts and visual systems.",
+    desc: "Brand identity built to last:logos, layouts and visual systems.",
     size: "small",
   },
   {
@@ -50,7 +50,7 @@ const services = [
   },
   {
     name: "Caravan Graphics",
-    desc: "Custom livery for caravans and RVs — personal or commercial.",
+    desc: "Custom livery for caravans and RVs:personal or commercial.",
     size: "small",
   },
   {
@@ -60,12 +60,12 @@ const services = [
   },
   {
     name: "Stickers & Graphics",
-    desc: "Cut and printed stickers for any application — indoor or outdoor.",
+    desc: "Cut and printed stickers for any application:indoor or outdoor.",
     size: "small",
   },
   {
     name: "One-Way Window Vinyl",
-    desc: "Privacy and branding in one — see out, brand in.",
+    desc: "Privacy and branding in one:see out, brand in.",
     size: "small",
   },
   {
@@ -111,7 +111,7 @@ export default function Services() {
             </h2>
           </div>
           <p className="text-white/50 max-w-xs text-sm leading-relaxed md:text-right">
-            From traditional handcraft to digital precision — if it carries your
+            From traditional handcraft to digital precision:if it carries your
             brand, we make it extraordinary.
           </p>
         </div>

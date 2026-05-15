@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { cn } from "@/app/lib/utils";
 
 const links = [
@@ -36,13 +37,15 @@ export default function Nav() {
       >
         <nav className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <span className="font-display text-2xl md:text-3xl tracking-wider text-white group-hover:text-[#FE0101] transition-colors duration-200">
-              KUSTOM
-              <span className="text-[#FE0101] group-hover:text-white transition-colors duration-200">
-                COLOUR
-              </span>
-            </span>
+          <a href="#" className="flex items-center group">
+            <Image
+              src="/logo.png"
+              alt="Kustom Colour Design"
+              width={120}
+              height={93}
+              priority
+              className="h-12 md:h-14 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Links */}

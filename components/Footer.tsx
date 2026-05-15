@@ -1,13 +1,19 @@
+import Image from "next/image";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-[#0D0D0D] border-t border-[#1F1F1F] py-10">
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <span className="font-display text-xl tracking-wider text-white">
-            KUSTOM<span className="text-[#FE0101]">COLOUR</span>
-          </span>
+        <div className="flex items-center gap-4">
+          <Image
+            src="/logo.png"
+            alt="Kustom Colour Design"
+            width={100}
+            height={77}
+            className="h-10 w-auto object-contain"
+          />
           <span className="text-white/20 text-xs">·</span>
           <span className="text-white/30 text-xs">Hervey Bay, QLD</span>
         </div>

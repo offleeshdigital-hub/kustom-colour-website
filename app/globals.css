@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Ridenation';
+  src: url('/fonts/RidenationfreepersonaluseScrip-lx8Yd.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #0D0D0D;
   --foreground: #FFFFFF;
@@ -36,6 +44,14 @@ body {
 
 .font-display {
   font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-bungee {
+  font-family: 'Bungee', sans-serif;
+}
+
+.font-script {
+  font-family: 'Lobster', cursive;
 }
 
 @keyframes marquee {

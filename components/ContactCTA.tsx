@@ -37,7 +37,7 @@ export default function ContactCTA() {
               </h2>
               <p className="text-white/50 text-base leading-relaxed max-w-sm">
                 Tell us about your project. Whether it&rsquo;s a single sticker or a
-                complete brand rollout — every great sign starts with a
+                complete brand rollout. Every great sign starts with a
                 conversation.
               </p>
 

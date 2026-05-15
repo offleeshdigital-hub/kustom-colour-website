@@ -139,33 +139,45 @@ export default function TurbulentFlow() {
         float grad3 = 1.0 - smoothstep(0.0, 0.55 - turb3 * 0.18, dist3);
         float grad4 = 1.0 - smoothstep(0.0, 0.45 - turb1 * 0.12, dist4);
 
-        // Kustom Colour palette — dark reds, near-blacks, ember tones
+        // Multi-colour kustom-kulture palette
         vec3 brandRed    = vec3(0.996, 0.004, 0.004); // #FE0101
-        vec3 deepRed     = vec3(0.45,  0.0,   0.0);
-        vec3 emberRed    = vec3(0.7,   0.08,  0.0);
-        vec3 nearBlack   = vec3(0.08,  0.0,   0.0);
-        vec3 darkCrimson = vec3(0.28,  0.0,   0.02);
+        vec3 electricBlue= vec3(0.0,   0.45,  1.0);   // electric blue
+        vec3 violet      = vec3(0.55,  0.0,   1.0);   // deep purple
+        vec3 orange      = vec3(1.0,   0.38,  0.0);   // hot orange
+        vec3 cyan        = vec3(0.0,   0.85,  0.9);   // neon cyan
+        vec3 deepRed     = vec3(0.5,   0.0,   0.0);
 
-        vec3 finalColor = vec3(0.02, 0.0, 0.0); // near-black base
+        // Slowly cycle hue offsets so colours breathe over time
+        float hueShift = sin(time * 0.18) * 0.5 + 0.5;
 
-        finalColor += deepRed    * grad1 * (0.55 + turb1 * 0.2);
-        finalColor += nearBlack  * grad2 * (0.4  + turb2 * 0.3);
-        finalColor += darkCrimson* grad3 * (0.35 + turb3 * 0.2);
-        finalColor += nearBlack  * grad4 * (0.3  + turb1 * 0.15);
+        // Mix some colours so they shift between hues over time
+        vec3 color1 = mix(brandRed,     orange,      hueShift);
+        vec3 color2 = mix(electricBlue, violet,      sin(time * 0.22 + 1.0) * 0.5 + 0.5);
+        vec3 color3 = mix(violet,       cyan,        sin(time * 0.15 + 2.0) * 0.5 + 0.5);
+        vec3 color4 = mix(orange,       brandRed,    sin(time * 0.27 + 3.0) * 0.5 + 0.5);
 
-        // Brand red highlight on interaction zones
-        float interaction1 = grad1 * grad2 * 0.6;
-        float interaction2 = grad2 * grad3 * 0.5;
-        finalColor += brandRed   * interaction1 * 0.4;
-        finalColor += emberRed   * interaction2 * 0.3;
+        vec3 finalColor = vec3(0.01, 0.01, 0.02); // near-black base
+
+        finalColor += color1  * grad1 * (0.5 + turb1 * 0.2);
+        finalColor += color2  * grad2 * (0.45 + turb2 * 0.25);
+        finalColor += color3  * grad3 * (0.4  + turb3 * 0.2);
+        finalColor += color4  * grad4 * (0.35 + turb1 * 0.15);
+
+        // Blend zones where colours overlap
+        float mix12 = grad1 * grad2 * 0.8;
+        float mix23 = grad2 * grad3 * 0.7;
+        float mix34 = grad3 * grad4 * 0.6;
+        finalColor += mix(color1, color2, 0.5) * mix12 * 0.5;
+        finalColor += mix(color2, color3, 0.5) * mix23 * 0.45;
+        finalColor += mix(color3, color4, 0.5) * mix34 * 0.4;
 
         // Subtle noise texture
         float noiseDetail = fbm(vec3(uv * 12.0, time * 0.08)) * 0.3;
-        finalColor += darkCrimson * noiseDetail * 0.15;
+        finalColor += deepRed * noiseDetail * 0.1;
 
-        // Keep it dark — cap brightness
-        finalColor = clamp(finalColor, 0.0, 0.55);
-        finalColor = pow(finalColor, vec3(0.92));
+        // Keep it dark and moody — cap at slightly higher for vibrancy
+        finalColor = clamp(finalColor, 0.0, 0.65);
+        finalColor = pow(finalColor, vec3(0.88));
 
         // Strong vignette to keep edges dark
         float vignette = 1.0 - length(uv - 0.5) * 1.9;
