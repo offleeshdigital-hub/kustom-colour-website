@@ -75,7 +75,7 @@ export default function Hero() {
             COLOUR
           </motion.h1>
         </div>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden pt-4 pb-4">
           <motion.p
             custom={3}
             variants={fadeUp}
