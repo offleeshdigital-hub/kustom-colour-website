@@ -3,6 +3,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const DRAW_EASE: [number, number, number, number] = [0.43, 0.13, 0.23, 0.96];
+
 // ─── Shared draw animation helper ────────────────────────────────────────────
 function draw(delay: number, duration = 2.0) {
   return {
@@ -11,7 +13,7 @@ function draw(delay: number, duration = 2.0) {
       pathLength: 1,
       opacity: 1,
       transition: {
-        pathLength: { delay, duration, ease: [0.43, 0.13, 0.23, 0.96] },
+        pathLength: { delay, duration, ease: DRAW_EASE },
         opacity: { delay, duration: 0.01 },
       },
     },
@@ -24,7 +26,7 @@ function fadeIn(delay: number) {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { delay, duration: 0.5, ease: "backOut" },
+      transition: { delay, duration: 0.5, ease: "backOut" as const },
     },
   };
 }

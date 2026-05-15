@@ -5,6 +5,8 @@ import TurbulentFlow from "@/components/TurbulentFlow";
 import HeroPinstripe from "@/components/HeroPinstripe";
 
 
+const EASE: [number, number, number, number] = [0.25, 0.4, 0.25, 1];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
@@ -13,7 +15,7 @@ const fadeUp = {
     transition: {
       duration: 0.9,
       delay: 0.4 + i * 0.18,
-      ease: [0.25, 0.4, 0.25, 1],
+      ease: EASE,
     },
   }),
 };
